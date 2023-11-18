@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Caesar - Encrypt your images easily!</title>
+{% endblock %}
+
+{% block body %}
+
+    <div style="margin-top: 0.1rem; margin-bottom: 1rem;">
+        <img class="mx-auto d-block" src="{{ url_for('static', filename='img/logo.svg') }}" width="300" height="100">
+    </div>
+
+    <div class="h-100 d-flex justify-content-center container">
+        <form method="POST" action="{{ url_for('imgAlgorithms') }}" class="grid" enctype="multipart/form-data" novalidate>
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            
+            <p style="margin-bottom: 0.1rem;">Choose the algoritm: </p>
+            {{ form.cypher_mode(class="form-select form-select-sm") }}
+
+            <div class="input" style="margin-top: 1rem;">
+                <p style="margin-bottom: 0.1rem;">Upload your image: </p>
+                {{ form.input_img(class_="form-control") }}
+            </div>
+
+            <div class="input" style="margin-top: 1rem;">
+                <p style="margin-bottom: 0.1rem;">Upload your key image (Hill only): </p>
+                {{ form.input_key_as_img(class_="form-control") }}
+            </div>
+
+            <div class="card border-light text-bg-dark" style="padding: 1rem; margin-top: 2rem; margin-bottom: 1rem;">
+                <p>Block algorithms settings</p>
+                <div style="margin-top: 1rem;">
+                    <p style="margin-bottom: 0.1rem;">Cipher mode: </p>
+                    {{ form.block_mode(class="form-select form-select-sm") }}
+                </div>
+    
+                <div class="input" style="margin-top: 1rem;">
+                    <p style="margin-bottom: 0.1rem;">Input your key: </p>
+                    {{ form.input_key(placeholder="Input your key 🗝️ here (optional)", class_="key") }}
+                </div>
+    
+                <div class="input" style="margin-top: 1rem;">
+                    <p style="margin-bottom: 0.1rem;">Input your initial vector: </p>
+                    {{ form.input_ivk(placeholder="Input your initial vector here (optional)", class_="key") }}
+                </div>
+
+            </div>
+            
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i> {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="d-flex justify-content-center">
+                <button class="text-btn encrypt" name="encrypt_img" value="encrypt">
+                    <i class="fa-solid fa-lock"></i> Encrypt
+                </button>
+                <button class="text-btn decrypt" name="decrypt_img" value="decrypt">
+                    <i class="fa-solid fa-lock-open"></i> Decrypt
+                </button>
+            </div>
+            
+        </form>     
+    </div>
+
+
+{% endblock %}

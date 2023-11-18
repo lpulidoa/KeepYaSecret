@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    <title>Caesar - Encrypt your text easily!</title>
+{% endblock %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="h-100 d-flex justify-content-center container">
+        <form method="POST" action="{{ url_for('home') }}" class="grid" novalidate>
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+
+            <div>
+                <img class="mx-auto d-block" src="{{ url_for('static', filename='img/logo.svg') }}" width="300" height="100">
+            </div>
+            
+            {{ form.cypher_mode(class="form-select form-select-sm") }}
+
+            <div  style="margin-top: 1rem;">
+                <p style="margin-bottom: 0.1rem;">Cipher mode (DES algorithm only): </p>
+                {{ form.block_mode(class="form-select form-select-sm") }}
+            </div> 
+
+
+            <div class="input d-flex justify-content-center" style="margin-top: 1rem;">
+                {{ form.input_text(placeholder="Input your text here...") }}
+            </div>
+
+            <div class="input d-flex justify-content-center" style="margin-top: 1rem;">
+                {{ form.input_key(placeholder="Input your key 🗝️ here (optional)", class_="key") }}
+            </div>
+
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i> {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+             {% endwith %}
+            
+            <div class="d-flex justify-content-center">
+                <button class="text-btn encrypt" name="encrypt" value="encrypt">
+                    <i class="fa-solid fa-lock"></i> Encrypt
+                </button>
+                <button class="text-btn decrypt" name="decrypt" value="decrypt">
+                    <i class="fa-solid fa-lock-open"></i> Decrypt
+                </button>
+            </div>
+            
+        </form>     
+    </div>
+
+    
+    
+
+    
+{% endblock %}

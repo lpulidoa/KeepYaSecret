@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    <title>Caesar - Your image has been {{ encrypted_or_decrypted }}!</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <h3>Your image has been {{ encrypted_or_decrypted }} succesfully!</h3>
+    </div>
+
+    <div class="container" style="margin-bottom: 4rem;">
+        
+        <div class="row align-items-center">
+            <div class="col text-center">
+                <h5 style="margin-top:1rem;">This is your image:</h5>
+                <img src="{{ url_for('static', filename=input_img_folder+input_img_filename) }}" style="width:75%; height:75%;">
+            </div>
+            <div class="col text-center">
+                <h5 style="margin-top:1rem;">This is your {{ encrypted_or_decrypted }} image:</h5>
+                <img src="{{ url_for('static', filename=output_img_folder+output_img_filename) }}" style="width:75%; height:75%;">
+            </div>
+
+            {% if key_img_folder!=None and key_img_filename!=None %}
+                <div class="col text-center">
+                    <h5 style="margin-top:1rem;">This is your key:</h5>
+                    <img src="{{ url_for('static', filename=key_img_folder+key_img_filename) }}" style="width:75%; height:75%;">
+                </div>
+            {% endif %}
+
+            {% if result_dict!=None%}
+                <div class="row" style="margin-top:1rem;">
+                    <h5 style="margin-top:1rem;">You used:</h5>
+                    <textarea class="textarea key" name="output_mode" style="margin-top: 0.25rem;" readonly>{{ result_dict.mode }} mode</textarea>
+                    <h5 style="margin-top:1rem;">This is your key:</h5>
+                    <textarea class="textarea key" name="output_key" style="margin-top: 0.25rem;" readonly>{{ result_dict.key }}</textarea>
+                    <h5 style="margin-top:1rem;">This is your initial vector:</h5>
+                    <textarea class="textarea key" name="output_ivk" style="margin-top: 0.25rem;" readonly>{{ result_dict.inicial_vector }}</textarea>
+                </div>
+            {% endif %}
+          </div>
+        
+        
+
+    </div>
+
+{% endblock %}

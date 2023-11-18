@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    <title>Caesar - Your text has been {{ encrypted_or_decrypted }}!</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        
+        <div>
+            <h3>Your text has been {{ encrypted_or_decrypted }} succesfully!</h3>
+            <h5 style="margin-top:1rem;">This is your text:</h5>
+            <textarea class="textarea" name="output_text" style="margin-top: 0.25rem;" readonly>{{ output_text }}</textarea>
+            <h5 style="margin-top:1rem;">These are your keys. Please keep them safe!</h5>
+
+            <h5>Prime 1:</h5>
+            <textarea class="textarea" name="output_key" style="margin-top: 0.25rem;" readonly>
+{{ output_key[0] }}  
+            </textarea>
+            <h5>Prime 2:</h5>
+            <textarea class="textarea" name="output_key" style="margin-top: 0.25rem;" readonly>
+{{ output_key[1] }}  
+            </textarea>
+            <h5>Private key:</h5>
+            <textarea class="textarea" name="output_key" style="margin-top: 0.25rem;" readonly>
+{{ output_key[2] }} 
+            </textarea>
+            <h5>Generator:</h5>
+            <textarea class="textarea" name="output_key" style="margin-top: 0.25rem;" readonly>
+{{ output_key[3] }}
+            </textarea>
+        </div>
+
+    </div>
+
+{% endblock %}

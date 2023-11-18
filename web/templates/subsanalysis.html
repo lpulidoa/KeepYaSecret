@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Caesar - Your text has been decrypted!</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div id="table-wrapper">
+            <h3>Frequency of letters:</h3>
+            <table class="table table-dark table-striped table-hover table-sm table-responsive">
+                <tr>
+                    <th style="width:7%;">Letter</th>
+                    <th>Frequency</th>
+                </tr>
+                {% for char in frequency %}
+                    <tr>
+                        <td>{{ char }}</td>
+                        <td>{{ frequency[char] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>   
+    </div>
+
+    <div class="container">
+        <div id="table-wrapper">
+            <h3>Most common digraphs:</h3>
+            <table class="table table-dark table-striped table-hover table-sm table-responsive">
+                <tr>
+                    <th style="width:10%;">Digraph</th>
+                    <th>Frequency</th>
+                </tr>
+                {% for item in digraphs %}
+                    <tr>
+                        <td>{{ item }}</td>
+                        <td>{{ digraphs[item] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>   
+    </div>
+
+{% endblock %}

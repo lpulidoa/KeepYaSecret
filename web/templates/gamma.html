@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    <title>Caesar - Encrypt your text easily!</title>
+{% endblock %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col" style="margin: 0.5rem 0 0.5rem 0">
+                <div class="card bg-dark border-light">
+                    <canvas id="graphCanvas" width="400px" height="400px"></canvas>
+                </div>
+                
+            </div>
+            <div class="col" style="margin: 0.5rem 0 0.5rem 0">
+                <div class="card bg-dark border-light">
+                    <canvas id="permCanvas" width="600px" height="600px"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="card border-light text-bg-dark" style="padding: 1rem; margin-top: 2rem; margin-bottom: 1rem;">
+                <h5>Gamma pentagonal settings</h5>
+    
+                <p style="margin-top: 1rem; margin-bottom: 0.1rem;">Choose the initial point: </p>
+                <div class="container" style="margin-top: 0.5rem;">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <input type="number" class="form-control" name="coordX" id="coordX" placeholder="x-coordinate">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" name="coordY" id="coordY" placeholder="y-coordinate">
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="margin-top: 1rem">
+                    <p style="margin-bottom: 0.6rem;">Choose the permutation: </p>
+                    <input type="text" class="form-control" name="permutation" id="permutation" placeholder="Insert your permutation (optional)">
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container" style="margin-top: 0.5rem;">
+                <div class="row align-items-center">
+                    <div class="col d-flex w-50">
+                        <div class="container">
+                            <div class="row">
+                                <textarea name="text-encrypt" id="text-encrypt" placeholder="Input your text to encrypt here"></textarea>
+                            </div>
+                            <div class="row">
+                                <button class="text-btn encrypt" id="encrypt" name="encrypt" value="encrypt">
+                                    <i class="fa-solid fa-lock"></i> Encrypt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col d-flex w-50">
+                        <div class="container">
+                            <div class="row">
+                                <textarea name="text-decrypt" id="text-decrypt" placeholder="Input your text to decrypt here"></textarea>
+                            </div>
+                            <div class="row">
+                                <button class="text-btn decrypt" id="decrypt" name="decrypt" value="decrypt">
+                                    <i class="fa-solid fa-lock-open"></i> Decrypt
+                                </button>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/gamma.js') }}"></script>
+    
+{% endblock %}
