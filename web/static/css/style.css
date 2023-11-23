@@ -1,8 +1,8 @@
-html, body{
+ html, body{
     min-height: 80vh;
     height: auto !important;
     height: 100%;
-    background-color: #111419;
+    background-color: #0f2f68;
     font-family: "Spline Sans Mono";
     font-size: 16px;
     color:#EFF1F3;
@@ -14,11 +14,11 @@ html, body{
 }
   
 ::-webkit-scrollbar-track {
-    background: #111419;
+    background: #5e7397;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #EFF1F3;
+    background: #3084d8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -26,7 +26,7 @@ html, body{
 }
 
 .navbar ul li a{
-    color: #EFF1F3;
+    color: #36608a;
     font-weight: bold;
 }
 
@@ -52,28 +52,28 @@ html, body{
 }
 
 .encrypt{
-    color: #f2423680;
+    color: #ff1100e7;
 }
 
 .encrypt:hover{
-    color: #f24236;
+    color: #9b2820;
 }
 
 .decrypt{
-    color: #4062BB80;
+    color: #38d84d80;
 }
 
 .decrypt:hover{
-    color: #4062BB;
+    color: rgb(39, 245, 11);
 }
 
 textarea {
-    background-color: #1c2129;
+    background-color: #6a7fa1;
     padding: 0.6rem 0.6rem 0.6rem 0.6rem;
     border: 2px solid transparent;
     border-radius: 10px;
-    color: #EFF1F3;
-    font-size: 0.8rem;
+    color: #ffffff;
+    font-size: 1rem;
     resize: none;
     width: 50vw;
     height: 20vh;
@@ -88,7 +88,7 @@ textarea {
 
 textarea:focus {
     outline: none !important;
-    border: 3px solid #EDFFAB80;
+    border: 3px solid #e3f896d2;
 }
 
 table {
@@ -97,7 +97,7 @@ table {
 }
 
 .form-select {
-    background-color: #1c2129;
+    background-color: rgb(27, 57, 105);
     color: #EFF1F3;
 }
 

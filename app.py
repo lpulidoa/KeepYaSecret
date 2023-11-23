@@ -15,6 +15,7 @@ from algorithms.rabin import rabinEncrypt, rabinDecrypt
 from algorithms.elgammal import elgammalEncrypt, elgammalDecrypt
 # from algorithms.elgammalEc import elgammalEcEncrypt, elgammalEcDecrypt
 from algorithms.goodies import processInput, InputKeyError, deleteImages
+from Kasiski_test import vigenere_cryptanalysis
 
 from flask import Flask, redirect, url_for, session, flash
 # from flask_session import Session
@@ -146,7 +147,7 @@ def home():
                         session["analysis_output"] = caesarDecrypt(input_text) # Ok
                         return redirect(url_for('bruteForceAnalysis'))
                     case "Vigenere cipher":
-                        session["analysis_output"] = vigenereDecrypt(input_text) # Ok
+                        session["analysis_output"] = vigenere_cryptanalysis(input_text) # Ok #RETURN LIST OF TUPLES
                         return redirect(url_for('bruteForceAnalysis'))
                     case "Affine cipher":
                         session["analysis_output"] = affineDecrypt(input_text) # Ok
@@ -433,9 +434,9 @@ def outputImgAndKey():
         result_dict=result_dict
     )
 
-@app.route('/gamma-pentagonal', methods=['POST', 'GET'])
-def gammaPentagonal():
-    return render_template("gamma.html")
+@app.route('/DSA', methods=['POST', 'GET'])
+def DSA():
+    return render_template("DSA.html")
 
 if __name__ == '__main__':
     app.run(debug=False)
