@@ -18,12 +18,20 @@
     
                 <p style="margin-top: 1rem; margin-bottom: 0.1rem;">Sign adjudments: </p>
                 <div class="container" style="margin-top: 0.5rem; margin-bottom: 0.1rem">
-                    <div class="col">
-                        <input type="number" class="form-control" name="M" id="Message" placeholder="The number for start Signing">
-                    </div>
                     <div class="row align-items-center">
                         <div class="col">
-                            <input type="number" class="form-control" name="Gamma-K" id="Gamma-K" placeholder="Key-First number of the Sign">
+                            <input type="number" class="form-control" name="M" id="Message" placeholder="The number for start Signing">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" name="Key" id="Key" placeholder="The Key">
+                        </div>
+                    </div>
+                    
+                    
+                   
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <input type="number" class="form-control" name="Gamma" id="Gamma" placeholder="First number of the Sign">
                         </div>
                         <div class="col">
                             <input type="number" class="form-control" name="Delta" id="Delta" placeholder="Second number of the Sign">
@@ -61,7 +69,7 @@
                             </div>
                             <div class="row">
                                 <button class="text-btn decrypt" id="verification" name="Rectificate" value="decrypt">
-                                    <i class="fa-solid fa-lock-open"></i> Decrypt
+                                    <i class="fa-solid fa-lock-open"></i> Verification
                                 </button>
                             </div>
                         </div>

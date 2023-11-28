@@ -42,7 +42,7 @@ function exp_mod(a, b, c) {
   document.getElementById('Signing').onclick = function() {
 
    var Mss = document.getElementById("Message").value
-   var Key = document.getElementById("Gamma-K").value
+   var Key = document.getElementById("Key").value
 
    var outputText = Sig_1(Mss, Key, g, y, Xhita, a_0 )
 
@@ -52,7 +52,7 @@ function exp_mod(a, b, c) {
   
   document.getElementById('verification').onclick = function() {
     var Mss = document.getElementById("Message").value
-    var Gamma = document.getElementById("Gamma-K").value
+    var Gamma = document.getElementById("Gamma").value
     var Delta = document.getElementById("Delta").value
 
     var outputText = Ver(Mss, Gamma, g, y, Delta, Xhita, Xhita_1)
