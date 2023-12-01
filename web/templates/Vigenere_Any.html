@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    <title>Keep your Secrets On Us</title>
+{% endblock %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="card border-light text-bg-dark" style="padding: 1rem; margin-top: 2rem; margin-bottom: 1rem;">
+                <h5>Vigenere Analysis</h5>
+    
+                <p style="margin-top: 1rem; margin-bottom: 0.1rem;">Analysis Place: </p>
+                <div class="container" style="margin-top: 0.5rem; margin-bottom: 0.1rem">
+                    <div class="row align-items-center">
+                        <div class="row">
+                            <textarea id="input_text" maxlength="2000" name="input_text" placeholder="Input your text here..." required=""></textarea>
+                        </div>
+                        
+                         <div class="row">
+                            <button class="text-btn decrypt" id="Signing" name="Brackthecode" value="decrypt">
+                                <i class="fa-solid fa-lock-open"></i> Analyse and Break
+                            </button>
+                        </div>
+                       
+                         <div class="row">
+                                <textarea name="Results" id="output" placeholder=""></textarea>
+                         </div>
+                           
+                        
+                    </div>
+
+                          
+                        
+                        
+                </div>
+            
+                <div style="margin-top: 1rem">
+                    
+                </div>
+    
+            </div>
+        </div>
+
+    
+    
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/kasiki.js') }}"></script>
+    
+{% endblock %}
